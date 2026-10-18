@@ -8,6 +8,7 @@ import WorldsPage from './pages/WorldsPage';
 import WorldMapPage from './pages/WorldMapPage';
 import WordLevelPage from './pages/WordLevelPage';
 import LevelCompletePage from './pages/LevelCompletePage';
+import PremiumPage from './pages/PremiumPage';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         <Route path="/world-map" element={<WorldMapPage />} />
         <Route path="/word-level" element={<WordLevelPage />} />
         <Route path="/level-complete" element={<LevelCompletePage />} />
+        
+        {/* Premium */}
+        <Route path="/premium" element={<PremiumPage />} />
       </Routes>
     </BrowserRouter>
   );

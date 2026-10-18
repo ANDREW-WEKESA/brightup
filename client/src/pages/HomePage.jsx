@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchUnits } from '../utils/api';
 import { getCustomUnits } from '../utils/storage';
+import { isPremium, getPremiumStatus } from '../utils/premium';
+import PremiumBadge from '../components/PremiumBadge';
+import AdBanner from '../components/AdBanner';
 
 export default function HomePage() {
   const [builtInUnits, setBuiltInUnits] = useState([]);
@@ -13,6 +16,8 @@ export default function HomePage() {
   const [error, setError] = useState(null);
   
   const navigate = useNavigate();
+  const premium = isPremium();
+  const premiumStatus = getPremiumStatus();
 
   useEffect(() => {
     loadUnits();
@@ -84,8 +89,26 @@ export default function HomePage() {
   return (
     <div className="container">
       <div className="header">
-        <h1>BrightUp</h1>
-        <p>Year 3 Software Engineering Revision</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <h1>BrightUp</h1>
+            <p>Year 3 Software Engineering Revision</p>
+          </div>
+          {premium ? (
+            <PremiumBadge />
+          ) : (
+            <a href="/premium" style={{ textDecoration: 'none' }}>
+              <button className="btn btn-secondary" style={{ fontSize: '0.875rem' }}>
+                👑 Go Premium
+              </button>
+            </a>
+          )}
+        </div>
+        {premium && premiumStatus.daysRemaining < 7 && (
+          <div className="alert alert-info" style={{ marginTop: '1rem', fontSize: '0.875rem' }}>
+            Premium expires in {premiumStatus.daysRemaining} days. <a href="/premium">Renew now →</a>
+          </div>
+        )}
       </div>
 
       {error && (
@@ -93,6 +116,9 @@ export default function HomePage() {
           {error}
         </div>
       )}
+
+      {/* Ad Banner for Free Users */}
+      {!premium && <AdBanner position="top" />}
 
       <div className="card">
         <h2>Select Units</h2>
@@ -215,7 +241,11 @@ export default function HomePage() {
       <div className="nav-links">
         <a href="/custom" className="nav-link">Create Custom Unit</a>
         <a href="/progress" className="nav-link">View Progress</a>
+        {!premium && <a href="/premium" className="nav-link" style={{ color: 'var(--warning)' }}>👑 Upgrade to Premium</a>}
       </div>
+
+      {/* Bottom Ad Banner for Free Users */}
+      {!premium && <AdBanner position="bottom" />}
     </div>
   );
 }
