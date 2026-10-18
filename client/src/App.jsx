@@ -9,12 +9,14 @@ import WorldMapPage from './pages/WorldMapPage';
 import WordLevelPage from './pages/WordLevelPage';
 import LevelCompletePage from './pages/LevelCompletePage';
 import PremiumPage from './pages/PremiumPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/custom" element={<CustomNotesPage />} />
         <Route path="/game" element={<GamePage />} />
         <Route path="/results" element={<ResultsPage />} />
