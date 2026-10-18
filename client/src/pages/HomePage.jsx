@@ -195,6 +195,23 @@ export default function HomePage() {
         Start Session ({selectedUnits.length} unit{selectedUnits.length !== 1 ? 's' : ''} selected)
       </button>
 
+      <div className="card" style={{ 
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        color: 'white',
+        textAlign: 'center',
+        cursor: 'pointer',
+        border: 'none'
+      }}
+      onClick={() => navigate('/worlds')}>
+        <h2 style={{ color: 'white', marginBottom: '0.5rem' }}>🌍 New! Level Mode</h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.95 }}>
+          Words of Wonders style - Discover words level by level!
+        </p>
+        <button className="btn btn-secondary" style={{ marginTop: '1rem' }}>
+          Play Level Mode →
+        </button>
+      </div>
+
       <div className="nav-links">
         <a href="/custom" className="nav-link">Create Custom Unit</a>
         <a href="/progress" className="nav-link">View Progress</a>
