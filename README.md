@@ -1,6 +1,21 @@
 # BrightUp
 
-A revision game that turns Year 3 Software Engineering notes into questions and letter-scramble puzzles.
+A revision game that turns Year 3 Software Engineering notes into questions and word discovery puzzles.
+
+## 🎮 Two Game Modes
+
+### 1. Classic Mode (Q&A)
+- Answer questions based on definitions
+- Multiple-choice or typed answers
+- Word scrambles when you get stuck
+- Session-based progress tracking
+
+### 2. Level Mode (NEW! - Words of Wonders Style)
+- Discover words from letter circles
+- Fill crossword grids
+- Progress through 5 worlds with 19 levels
+- Earn stars and unlock new levels
+- Learn through word discovery instead of Q&A
 
 ## Features
 
