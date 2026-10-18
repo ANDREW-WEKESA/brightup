@@ -2,6 +2,9 @@
  * Built-in Year 3 Software Engineering units with starter content
  */
 
+// Import comprehensive study materials
+import { comprehensiveUnits } from './comprehensive-units.js';
+
 export const units = [
   {
     id: 'software-testing',
@@ -113,14 +116,18 @@ export const units = [
   }
 ];
 
+// Merge original units with comprehensive study materials
+const allUnits = [...units, ...comprehensiveUnits];
+
 export function getAllUnits() {
-  return units.map(unit => ({
+  return allUnits.map(unit => ({
     id: unit.id,
     name: unit.name,
+    description: unit.description || '',
     termCount: unit.termCount
   }));
 }
 
 export function getUnitById(id) {
-  return units.find(unit => unit.id === id);
+  return allUnits.find(unit => unit.id === id);
 }

@@ -19,7 +19,8 @@ A revision game that turns Year 3 Software Engineering notes into questions and 
 
 ## Features
 
-✅ **5 Built-in Units** - 73 terms covering Year 3 Software Engineering  
+✅ **11 Comprehensive Units** - 380+ terms covering all Year 3 Software Engineering courses  
+✅ **Based on Real Course Content** - Kisii University study materials (SOEN 201, 255, 301, 303, 305, 320, 350, 370)  
 ✅ **Custom Notes** - Paste your own notes from any university  
 ✅ **Multiple Choice & Typed Answers** - Choose your learning style  
 ✅ **Word Scrambles** - Rebuild terms when you get stuck  
@@ -95,9 +96,24 @@ brightup/
 └── docs/            # Requirements and design documents
 ```
 
-## Built-in Units (73 Terms)
+## Built-in Units (380+ Terms)
 
-1. **Software Testing and Quality Assurance** - 16 terms
+### Core Courses
+1. **SOEN 201 - Data Structures and Algorithms** - 35 terms (arrays, trees, graphs, sorting, Big-O)
+2. **SOEN 255 - API Design & Implementation** - 50 terms (REST, OAuth, Apigee, security)
+3. **SOEN 301 - Computer Security** - 45 terms (CIA triad, cryptography, threats, controls)
+4. **SOEN 303 - Component Development** - 20 terms (modularity, interfaces, versioning)
+5. **SOEN 305 - Object Oriented Programming (Java II)** - 30 terms (patterns, generics, threading)
+6. **SOEN 320 - Special Topics** - 25 terms (DevOps, CI/CD, microservices, containers)
+7. **SOEN 350 - Mobile Application Development** - 75 terms (Android, lifecycle, intents, APIs)
+8. **SOEN 370 - Design and Development** - 30 terms (SOLID, UML, SDLC, architecture)
+
+### Practice Units
+9. **Software Testing and Quality Assurance** - 16 terms
+10. **Software Project Management** - 15 terms
+11. **Software Architecture and Design Patterns** - 15 terms
+
+_All content based on Kisii University official course materials and comprehensive study notes._
 2. **Software Project Management** - 15 terms
 3. **Software Architecture and Design Patterns** - 15 terms
 4. **Information Security** - 15 terms
