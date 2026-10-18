@@ -12,10 +12,10 @@ export const comprehensiveUnits = [
     termCount: 45,
     terms: [
       // Basic Terminologies
-      { term: 'System security', definition: 'coordinated protection of hardware software data networks users and services from unauthorized access misuse disruption modification or destruction' },
-      { term: 'Asset', definition: 'something valuable that needs protection such as database physical hardware or confidential data' },
-      { term: 'Threat', definition: 'anything with potential to cause harm to information system or asset such as hackers malware or natural disasters' },
-      { term: 'Vulnerability', definition: 'weakness in system that could be exploited by threat such as weak passwords outdated software or unencrypted data' },
+      { term: 'System security', definition: 'What is the coordinated protection of hardware software data networks and users from unauthorized access called?' },
+      { term: 'Asset', definition: 'What do you call something valuable that needs protection like databases or confidential data?' },
+      { term: 'Threat', definition: 'What is anything with potential to cause harm to an information system called?' },
+      { term: 'Vulnerability', definition: 'What is a weakness in a system that could be exploited by threats called?' },
       { term: 'Exploit', definition: 'method technique or program used to take advantage of vulnerability in system' },
       { term: 'Attack', definition: 'intentional attempt to compromise system such as phishing ransomware DDoS or password attacks' },
       { term: 'Risk', definition: 'possibility that threat will exploit vulnerability and cause harm calculated as likelihood times impact' },

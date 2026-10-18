@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchUnit } from '../utils/api';
+import { formatClue } from '../utils/clues';
 
 export default function WordLevelPage() {
   const location = useLocation();
@@ -187,23 +188,24 @@ export default function WordLevelPage() {
                 transition: 'all 0.3s'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <strong style={{ fontSize: '1.1rem' }}>
-                    {item.found ? item.term : '???'}
-                  </strong>
-                  {item.found && (
-                    <p style={{ fontSize: '0.875rem', marginTop: '0.25rem', opacity: 0.9 }}>
-                      {item.definition}
-                    </p>
-                  )}
-                  {!item.found && showHint && (
-                    <p style={{ fontSize: '0.875rem', marginTop: '0.25rem', color: 'var(--text-secondary)' }}>
-                      {item.letters.length} letters: {item.letters[0]}...
-                    </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: 1 }}>
+                  {item.found ? (
+                    <>
+                      <strong style={{ fontSize: '1.1rem' }}>{item.term}</strong>
+                      <p style={{ fontSize: '0.875rem', marginTop: '0.25rem', opacity: 0.9 }}>
+                        {item.definition}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p style={{ fontSize: '0.95rem', fontWeight: 500, marginBottom: '0.25rem' }}>
+                        {formatClue(item.term, item.definition, showHint)}
+                      </p>
+                    </>
                   )}
                 </div>
-                <div style={{ fontSize: '1.5rem' }}>
+                <div style={{ fontSize: '1.5rem', flexShrink: 0 }}>
                   {item.found ? '✓' : item.horizontal ? '→' : '↓'}
                 </div>
               </div>
@@ -211,11 +213,13 @@ export default function WordLevelPage() {
           ))}
         </div>
 
-        {!showHint && (
-          <button onClick={() => setShowHint(true)} className="btn btn-secondary btn-block">
-            Show Hints
-          </button>
-        )}
+        <button 
+          onClick={() => setShowHint(!showHint)} 
+          className="btn btn-secondary btn-block"
+          style={{ marginTop: '1rem' }}
+        >
+          {showHint ? 'Hide Hints' : 'Show Letter Hints'}
+        </button>
       </div>
 
       {/* Selected Word */}
