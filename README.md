@@ -19,12 +19,13 @@ A revision game that turns Year 3 Software Engineering notes into questions and 
 
 ## Features
 
-✅ **11 Comprehensive Units** - 380+ terms covering all Year 3 Software Engineering courses  
-✅ **Based on Real Course Content** - Kisii University study materials (SOEN 201, 255, 301, 303, 305, 320, 350, 370)  
+✅ **16 Comprehensive Units** - 600+ terms covering Computer Science & Software Engineering  
+✅ **Year 1-4 Coverage** - From programming basics to advanced software architecture  
+✅ **Based on Real Course Content** - Kisii University official materials  
 ✅ **Custom Notes** - Paste your own notes from any university  
 ✅ **Multiple Choice & Typed Answers** - Choose your learning style  
-✅ **Word Scrambles** - Rebuild terms when you get stuck  
-✅ **Progress Tracking** - Monitor mastery across units  
+✅ **Word Discovery Mode** - Learn through Words of Wonders style gameplay  
+✅ **Progress Tracking** - Monitor mastery across all units  
 ✅ **Revision Queue** - Missed questions return 3-5 questions later  
 ✅ **Offline Support** - Works without internet once loaded  
 ✅ **Mobile Responsive** - Works on phones, tablets, and desktops  
@@ -96,24 +97,31 @@ brightup/
 └── docs/            # Requirements and design documents
 ```
 
-## Built-in Units (380+ Terms)
+## Built-in Units (600+ Terms)
 
-### Core Courses
-1. **SOEN 201 - Data Structures and Algorithms** - 35 terms (arrays, trees, graphs, sorting, Big-O)
-2. **SOEN 255 - API Design & Implementation** - 50 terms (REST, OAuth, Apigee, security)
-3. **SOEN 301 - Computer Security** - 45 terms (CIA triad, cryptography, threats, controls)
-4. **SOEN 303 - Component Development** - 20 terms (modularity, interfaces, versioning)
-5. **SOEN 305 - Object Oriented Programming (Java II)** - 30 terms (patterns, generics, threading)
-6. **SOEN 320 - Special Topics** - 25 terms (DevOps, CI/CD, microservices, containers)
-7. **SOEN 350 - Mobile Application Development** - 75 terms (Android, lifecycle, intents, APIs)
-8. **SOEN 370 - Design and Development** - 30 terms (SOLID, UML, SDLC, architecture)
+### 🎓 Year 1 & Fundamentals (5 units, 225 terms)
+1. **SOEN 101 - Introduction to Programming** - 40 terms (variables, loops, functions, arrays)
+2. **SOEN 102 - Object-Oriented Programming Basics** - 35 terms (classes, objects, inheritance)
+3. **Database Systems** - 50 terms (SQL, normalization, transactions, ACID)
+4. **Computer Networks** - 55 terms (OSI model, TCP/IP, protocols, security)
+5. **Operating Systems** - 45 terms (processes, memory management, file systems)
 
-### Practice Units
-9. **Software Testing and Quality Assurance** - 16 terms
-10. **Software Project Management** - 15 terms
-11. **Software Architecture and Design Patterns** - 15 terms
+### 🚀 Year 3 Core SOEN (8 units, 310 terms)
+6. **SOEN 201 - Data Structures and Algorithms** - 35 terms
+7. **SOEN 255 - API Design & Implementation** - 50 terms
+8. **SOEN 301 - Computer Security** - 45 terms
+9. **SOEN 303 - Component Development** - 20 terms
+10. **SOEN 305 - OOP/Java II** - 30 terms
+11. **SOEN 320 - Special Topics** - 25 terms
+12. **SOEN 350 - Mobile Application Development** - 75 terms
+13. **SOEN 370 - Design and Development** - 30 terms
 
-_All content based on Kisii University official course materials and comprehensive study notes._
+### 💪 Practice Units (3 units, 65+ terms)
+14. **Software Testing and Quality Assurance** - 16 terms
+15. **Software Project Management** - 15 terms
+16. **Software Architecture and Design Patterns** - 15 terms
+
+_All content based on official university course materials and comprehensive study notes._
 2. **Software Project Management** - 15 terms
 3. **Software Architecture and Design Patterns** - 15 terms
 4. **Information Security** - 15 terms
