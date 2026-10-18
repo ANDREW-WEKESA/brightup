@@ -9,7 +9,7 @@ export default function WordLevelPage() {
   const { worldId, worldName, level } = location.state || {};
 
   const [terms, setTerms] = useState([]);
-  const [grid, setGrid] = useState([]);
+  const [currentTermIndex, setCurrentTermIndex] = useState(0);
   const [availableLetters, setAvailableLetters] = useState([]);
   const [selectedLetters, setSelectedLetters] = useState([]);
   const [foundWords, setFoundWords] = useState([]);
@@ -35,17 +35,10 @@ export default function WordLevelPage() {
       
       setTerms(levelTerms);
       
-      // Create crossword grid
-      const gridData = createGrid(levelTerms);
-      setGrid(gridData);
-      
-      // Generate letter circle from all terms
-      const allLetters = levelTerms
-        .map(t => t.term.toUpperCase().replace(/[^A-Z]/g, ''))
-        .join('')
-        .split('');
-      
-      const shuffled = shuffleArray([...allLetters]);
+      // Generate letter circle from CURRENT term only
+      const currentTerm = levelTerms[0];
+      const letters = currentTerm.term.toUpperCase().replace(/[^A-Z\s]/g, '').replace(/\s/g, '');
+      const shuffled = shuffleArray(letters.split(''));
       setAvailableLetters(shuffled.map((letter, idx) => ({ id: idx, letter })));
       
       setLoading(false);
@@ -55,30 +48,7 @@ export default function WordLevelPage() {
     }
   }
 
-  function createGrid(levelTerms) {
-    // Simple crossword: vertical and horizontal words
-    const grid = [];
-    let row = 0;
-
-    levelTerms.forEach((termObj, idx) => {
-      const term = termObj.term.toUpperCase().replace(/[^A-Z]/g, '');
-      const isHorizontal = idx % 2 === 0;
-
-      grid.push({
-        id: idx,
-        term: termObj.term,
-        definition: termObj.definition,
-        letters: term.split(''),
-        position: { row, col: 0 },
-        horizontal: isHorizontal,
-        found: false
-      });
-
-      row += 2;
-    });
-
-    return grid;
-  }
+  // Remove createGrid function since we don't need it anymore
 
   function shuffleArray(array) {
     const result = [...array];
@@ -101,22 +71,30 @@ export default function WordLevelPage() {
 
   function checkWord() {
     const word = selectedLetters.map(l => l.letter).join('');
+    const currentTerm = terms[currentTermIndex];
+    const correctAnswer = currentTerm.term.toUpperCase().replace(/[^A-Z\s]/g, '').replace(/\s/g, '');
     
-    // Check if it matches a term in the grid
-    const matchedTerm = grid.find(g => 
-      !g.found && g.term.toUpperCase().replace(/[^A-Z]/g, '') === word
-    );
-
-    if (matchedTerm) {
-      // Found a grid word!
-      setGrid(grid.map(g => 
-        g.id === matchedTerm.id ? { ...g, found: true } : g
-      ));
-      setFoundWords([...foundWords, matchedTerm]);
+    if (word === correctAnswer) {
+      // Correct answer!
+      setFoundWords([...foundWords, currentTerm]);
       setSelectedLetters([]);
+      setShowHint(false);
       
-      // Check if level complete
-      if (foundWords.length + 1 === terms.length) {
+      // Move to next term or complete level
+      if (currentTermIndex + 1 < terms.length) {
+        // Next term
+        setTimeout(() => {
+          const nextIndex = currentTermIndex + 1;
+          setCurrentTermIndex(nextIndex);
+          
+          // Load letters for next term
+          const nextTerm = terms[nextIndex];
+          const letters = nextTerm.term.toUpperCase().replace(/[^A-Z\s]/g, '').replace(/\s/g, '');
+          const shuffled = shuffleArray(letters.split(''));
+          setAvailableLetters(shuffled.map((letter, idx) => ({ id: idx, letter })));
+        }, 500);
+      } else {
+        // Level complete!
         setTimeout(() => {
           navigate('/level-complete', {
             state: {
@@ -130,15 +108,8 @@ export default function WordLevelPage() {
           });
         }, 1000);
       }
-    } else if (word.length >= 3) {
-      // Check if it's a bonus word (valid English word not in grid)
-      // For now, just accept any 3+ letter word as bonus
-      if (!bonusWords.includes(word)) {
-        setBonusWords([...bonusWords, word]);
-      }
-      setSelectedLetters([]);
     } else {
-      // Invalid word
+      // Wrong answer - shake animation or error
       setSelectedLetters([]);
     }
   }
@@ -152,7 +123,7 @@ export default function WordLevelPage() {
     setSelectedLetters([]);
   }
 
-  if (loading) {
+  if (loading || terms.length === 0) {
     return (
       <div className="container">
         <div className="header">
@@ -165,60 +136,59 @@ export default function WordLevelPage() {
     );
   }
 
+  const currentTerm = terms[currentTermIndex];
+
   return (
     <div className="container">
       <div className="header">
         <h1>{worldName}</h1>
-        <p>Level {level} • {foundWords.length}/{terms.length} words found</p>
+        <p>Level {level} • Question {currentTermIndex + 1}/{terms.length}</p>
       </div>
 
-      {/* Crossword Grid */}
+      {/* Progress Bar */}
       <div className="card">
-        <h3>Find These Words:</h3>
-        <div style={{ marginTop: '1rem' }}>
-          {grid.map(item => (
+        <div style={{ 
+          display: 'flex', 
+          gap: '0.5rem', 
+          justifyContent: 'center',
+          marginBottom: '1rem'
+        }}>
+          {terms.map((_, idx) => (
             <div
-              key={item.id}
+              key={idx}
               style={{
-                padding: '0.75rem',
-                marginBottom: '0.5rem',
-                background: item.found ? 'var(--success)' : 'var(--bg)',
-                borderRadius: 'var(--radius)',
-                color: item.found ? 'white' : 'var(--text)',
+                width: '40px',
+                height: '8px',
+                borderRadius: '4px',
+                background: idx < currentTermIndex ? 'var(--success)' : 
+                           idx === currentTermIndex ? 'var(--primary)' : 
+                           'var(--bg)',
                 transition: 'all 0.3s'
               }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ flex: 1 }}>
-                  {item.found ? (
-                    <>
-                      <strong style={{ fontSize: '1.1rem' }}>{item.term}</strong>
-                      <p style={{ fontSize: '0.875rem', marginTop: '0.25rem', opacity: 0.9 }}>
-                        {item.definition}
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <p style={{ fontSize: '0.95rem', fontWeight: 500, marginBottom: '0.25rem' }}>
-                        {formatClue(item.term, item.definition, showHint)}
-                      </p>
-                    </>
-                  )}
-                </div>
-                <div style={{ fontSize: '1.5rem', flexShrink: 0 }}>
-                  {item.found ? '✓' : item.horizontal ? '→' : '↓'}
-                </div>
-              </div>
-            </div>
+            />
           ))}
+        </div>
+
+        {/* Current Question */}
+        <div style={{ 
+          padding: '1.5rem',
+          background: 'var(--bg)',
+          borderRadius: 'var(--radius)',
+          marginBottom: '1rem'
+        }}>
+          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary)' }}>
+            Find this word:
+          </h3>
+          <p style={{ fontSize: '1rem', lineHeight: '1.5' }}>
+            {formatClue(currentTerm.term, currentTerm.definition, showHint)}
+          </p>
         </div>
 
         <button 
           onClick={() => setShowHint(!showHint)} 
           className="btn btn-secondary btn-block"
-          style={{ marginTop: '1rem' }}
         >
-          {showHint ? 'Hide Hints' : 'Show Letter Hints'}
+          {showHint ? '🙈 Hide Hint' : '💡 Show Letter Hint'}
         </button>
       </div>
 
@@ -292,14 +262,7 @@ export default function WordLevelPage() {
         </button>
       </div>
 
-      {/* Bonus Words */}
-      {bonusWords.length > 0 && (
-        <div className="alert alert-info">
-          <strong>Bonus Words Found:</strong> {bonusWords.join(', ')}
-          <br/>
-          <small>+{bonusWords.length * 10} bonus points!</small>
-        </div>
-      )}
+      {/* Bonus Words - Remove since we're doing one at a time */}
 
       <div className="nav-links">
         <a href="/worlds" className="nav-link">← Quit Level</a>
