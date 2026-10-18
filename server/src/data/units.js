@@ -4,6 +4,7 @@
 
 // Import comprehensive study materials
 import { comprehensiveUnits } from './comprehensive-units.js';
+import { expandedUnits } from './expanded-units.js';
 
 export const units = [
   {
@@ -116,8 +117,8 @@ export const units = [
   }
 ];
 
-// Merge original units with comprehensive study materials
-const allUnits = [...units, ...comprehensiveUnits];
+// Merge original units with comprehensive and expanded study materials
+const allUnits = [...units, ...comprehensiveUnits, ...expandedUnits];
 
 export function getAllUnits() {
   return allUnits.map(unit => ({
