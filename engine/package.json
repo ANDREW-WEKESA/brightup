@@ -1,0 +1,14 @@
+{
+  "name": "brightup-engine",
+  "version": "1.0.0",
+  "description": "Rule-based question generation and word scramble engine for BrightUp",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test src/**/*.test.js",
+    "test:watch": "node --test --watch src/**/*.test.js"
+  },
+  "keywords": ["revision", "questions", "scramble", "learning"],
+  "author": "Andrew",
+  "license": "MIT"
+}
