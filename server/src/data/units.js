@@ -2,9 +2,11 @@
  * Built-in Year 3 Software Engineering units with starter content
  */
 
-// Import comprehensive study materials
+// Import all study materials
 import { comprehensiveUnits } from './comprehensive-units.js';
 import { expandedUnits } from './expanded-units.js';
+import { year4Advanced } from './year4-advanced.js';
+import { specializedTopics } from './specialized-topics.js';
 
 export const units = [
   {
@@ -117,8 +119,8 @@ export const units = [
   }
 ];
 
-// Merge original units with comprehensive and expanded study materials
-const allUnits = [...units, ...comprehensiveUnits, ...expandedUnits];
+// Merge all study materials
+const allUnits = [...units, ...comprehensiveUnits, ...expandedUnits, ...year4Advanced, ...specializedTopics];
 
 export function getAllUnits() {
   return allUnits.map(unit => ({
