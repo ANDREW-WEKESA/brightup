@@ -1,7 +1,7 @@
 # Multi-stage build for BrightUp application
 
 # Stage 1: Build client
-FROM node:18-alpine AS client-builder
+FROM node:26-alpine AS client-builder
 
 WORKDIR /app/client
 
@@ -18,7 +18,7 @@ COPY client/ ./
 RUN npm run build
 
 # Stage 2: Build server
-FROM node:18-alpine AS server-builder
+FROM node:26-alpine AS server-builder
 
 WORKDIR /app/server
 
@@ -32,7 +32,7 @@ RUN npm ci --only=production
 COPY server/ ./
 
 # Stage 3: Production image
-FROM node:18-alpine
+FROM node:26-alpine
 
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
