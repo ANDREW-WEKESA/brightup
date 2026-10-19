@@ -19,14 +19,16 @@ A revision game that turns Year 3 Software Engineering notes into questions and 
 
 ## Features
 
-✅ **16 Comprehensive Units** - 600+ terms covering Computer Science & Software Engineering  
-✅ **Year 1-4 Coverage** - From programming basics to advanced software architecture  
-✅ **Based on Real Course Content** - Kisii University official materials  
+✅ **22 Comprehensive Units** - 875+ terms covering complete CS & Software Engineering curriculum  
+✅ **Year 1-4 Complete Coverage** - From programming basics to machine learning  
+✅ **Specialized Topics** - Web Dev, HCI, Cybersecurity, Cloud Computing  
+✅ **Based on Real Course Content** - University-level quality  
 ✅ **Custom Notes** - Paste your own notes from any university  
-✅ **Multiple Choice & Typed Answers** - Choose your learning style  
-✅ **Word Discovery Mode** - Learn through Words of Wonders style gameplay  
+✅ **Two Game Modes** - Q&A + Words of Wonders style level mode  
+✅ **Smart Clue Generation** - Auto-converts definitions to questions  
 ✅ **Progress Tracking** - Monitor mastery across all units  
-✅ **Revision Queue** - Missed questions return 3-5 questions later  
+✅ **Authentication Ready** - Google OAuth + email/password  
+✅ **Monetization Ready** - Freemium model ($4.99/month premium)  
 ✅ **Offline Support** - Works without internet once loaded  
 ✅ **Mobile Responsive** - Works on phones, tablets, and desktops  
 
@@ -97,14 +99,14 @@ brightup/
 └── docs/            # Requirements and design documents
 ```
 
-## Built-in Units (600+ Terms)
+## Built-in Units (875+ Terms)
 
 ### 🎓 Year 1 & Fundamentals (5 units, 225 terms)
-1. **SOEN 101 - Introduction to Programming** - 40 terms (variables, loops, functions, arrays)
-2. **SOEN 102 - Object-Oriented Programming Basics** - 35 terms (classes, objects, inheritance)
-3. **Database Systems** - 50 terms (SQL, normalization, transactions, ACID)
-4. **Computer Networks** - 55 terms (OSI model, TCP/IP, protocols, security)
-5. **Operating Systems** - 45 terms (processes, memory management, file systems)
+1. **SOEN 101 - Introduction to Programming** - 40 terms
+2. **SOEN 102 - Object-Oriented Programming Basics** - 35 terms
+3. **Database Systems** - 50 terms
+4. **Computer Networks** - 55 terms
+5. **Operating Systems** - 45 terms
 
 ### 🚀 Year 3 Core SOEN (8 units, 310 terms)
 6. **SOEN 201 - Data Structures and Algorithms** - 35 terms
@@ -116,12 +118,22 @@ brightup/
 12. **SOEN 350 - Mobile Application Development** - 75 terms
 13. **SOEN 370 - Design and Development** - 30 terms
 
-### 💪 Practice Units (3 units, 65+ terms)
-14. **Software Testing and Quality Assurance** - 16 terms
-15. **Software Project Management** - 15 terms
-16. **Software Architecture and Design Patterns** - 15 terms
+### 🎯 Year 4 Advanced (3 units, 135 terms)
+14. **SOEN 401 - Software Requirements Engineering** - 40 terms
+15. **SOEN 402 - Cloud Computing** - 45 terms
+16. **SOEN 403 - Machine Learning Fundamentals** - 50 terms
 
-_All content based on official university course materials and comprehensive study notes._
+### 💡 Specialized Topics (3 units, 140 terms)
+17. **Web Development Fundamentals** - 55 terms
+18. **Human-Computer Interaction (HCI)** - 40 terms
+19. **Cybersecurity Advanced Topics** - 45 terms
+
+### 💪 Practice Units (3 units, 65+ terms)
+20. **Software Testing and Quality Assurance** - 16 terms
+21. **Software Project Management** - 15 terms
+22. **Software Architecture and Design Patterns** - 15 terms
+
+_22 comprehensive units covering complete CS/Software Engineering curriculum from Year 1 to graduation._
 2. **Software Project Management** - 15 terms
 3. **Software Architecture and Design Patterns** - 15 terms
 4. **Information Security** - 15 terms
