@@ -1,0 +1,41 @@
+# BrightUp Code Owners
+# These owners will be automatically requested for review when someone opens a pull request.
+
+# Default owners for everything in the repo
+* @yourusername
+
+# Server/Backend code
+/server/** @yourusername @backend-team
+
+# Client/Frontend code
+/client/** @yourusername @frontend-team
+
+# Documentation
+*.md @yourusername @docs-team
+/docs/** @yourusername @docs-team
+
+# Configuration files
+*.json @yourusername
+*.yml @yourusername
+*.yaml @yourusername
+
+# GitHub workflows
+/.github/** @yourusername @devops-team
+
+# Database and data files
+/server/src/data/** @yourusername @content-team
+
+# Security-sensitive files
+/server/middleware/auth.js @yourusername @security-team
+/server/routes/auth.js @yourusername @security-team
+SECURITY.md @yourusername @security-team
+
+# Deployment and Docker
+Dockerfile @yourusername @devops-team
+docker-compose.yml @yourusername @devops-team
+nginx.conf @yourusername @devops-team
+
+# Tests
+**/*.test.js @yourusername @qa-team
+**/*.spec.js @yourusername @qa-team
+/tests/** @yourusername @qa-team
