@@ -1,0 +1,127 @@
+.daily-challenge-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+  margin-bottom: 2rem;
+}
+
+.challenge-header {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.challenge-info {
+  flex: 1;
+}
+
+.challenge-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.challenge-info h3 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.challenge-info p {
+  opacity: 0.95;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.challenge-details {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.detail-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-challenge {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-challenge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-completed {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+}
+
+.completed-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-completed p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.challenge-completed span {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .daily-challenge-card {
+    padding: 1.5rem;
+  }
+
+  .challenge-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .challenge-icon {
+    font-size: 3rem;
+  }
+
+  .challenge-info h3 {
+    font-size: 1.5rem;
+  }
+}
